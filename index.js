@@ -14,6 +14,8 @@ const TeacherPostController=require('./Routes/TeacherRoute')
 const TeacherGetController=require('./Routes/TeacherRoute')
 const SubjectPostController=require('./Routes/SubjectRoute')
 const SubjectGetController=require('./Routes/SubjectRoute')
+const GroupGetController=require('./Routes/GroupRoute')
+const GroupPostController=require('./Routes/GroupRoute')
 
 
 
@@ -39,6 +41,9 @@ app.use(TeacherPostController)
 app.use(TeacherGetController)
 app.use(SubjectPostController)
 app.use(SubjectGetController)
+app.use(GroupGetController)
+app.use(GroupPostController)
+
 
 //server
 app.listen(4000,()=>{
