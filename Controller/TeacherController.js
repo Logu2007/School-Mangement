@@ -7,6 +7,10 @@ const TeacherPostController=async(req,res)=>{
     }
     try{
     //db
+    const TeacherExists=await TeacherModel.findOne({$and:[{Class},{School},{Section},{Teacher}]})
+    if(TeacherExists){
+        return res.status(400).json({message:"Details Already Exists!"})
+    }
     const TeacherDetails=TeacherModel({
     Class,School,Section,Teacher
     })

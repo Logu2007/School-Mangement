@@ -8,6 +8,10 @@ if(!Class||!School||!Section){
 }
 try{
 //db
+const SectionExists= await SectionModel.findOne({$and:[{Class},{School},{Section}]})
+if(SectionExists){
+    return res.status(400).json({message:"Details Already Exists!"})
+}
 const SectionDetails=SectionModel({
 Class,School,Section
 })

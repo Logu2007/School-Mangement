@@ -8,6 +8,10 @@ if(!Name||!Address||!Contact||!Pricipal){
 }
 try{
 //db
+const SchoolExists=await SchoolModel.findOne({$and:[{Name},{Address},{Contact},{Pricipal},]})
+if(SchoolExists){
+    return res.status(400).json({message:"Details Already Exists!"})
+}
 const SchoolDetails=SchoolModel({
     Name,Address,Contact,Pricipal
 })

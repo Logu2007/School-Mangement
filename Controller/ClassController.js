@@ -7,11 +7,16 @@ if(!Class||!School){
     return res.status(400).json({message:'Fill the Fields'})
 }
 //database
+const ClassExists=await ClassModel.findOne({$and:[{Class},{School}]})
+if(ClassExists){
+    return res.status(400).json({message:'School and Class Already Exists!'})
+}
 try{
 const ClassDetails=ClassModel({
     Class,School
 })
 await ClassDetails.save()
+
 return res.status(200).json({message:'Details Submitted Successfully!'})
 }
 catch(err){

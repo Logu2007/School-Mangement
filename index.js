@@ -22,7 +22,7 @@ const GroupPostController=require('./Routes/GroupRoute')
 
 
 //database
-const uri = 'mongodb+srv://Logu2007:Logu%402007@cluster0.k4f2v.mongodb.net/yourDatabaseName?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Logu2007:Logu%402007@cluster0.k4f2v.mongodb.net/School-Mangement?retryWrites=true&w=majority';
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
