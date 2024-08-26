@@ -22,11 +22,16 @@ const GroupPostController=require('./Routes/GroupRoute')
 
 
 //database
-mongoose.connect('mongodb://localhost:27017/SchoolMangement').then(()=>{
-    console.log('db is connected')
-}).catch((err)=>{
-    console.log('db error',err)
-})
+const uri = 'mongodb+srv://Logu2007:Logu%402007@cluster0.k4f2v.mongodb.net/yourDatabaseName?retryWrites=true&w=majority';
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Database is connected');
+}).catch((err) => {
+    console.error('Database connection error:', err);
+}); 
 //middleware
 app.use(cors())
 app.use(express.json())
